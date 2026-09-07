@@ -49,7 +49,7 @@ export const navigation: NavItem[] = [
       { label: "월간지", href: "/magazine" },
     ],
   },
-  { label: "주일학교", href: "/sunday-school" },
+  { label: "주일학교안내", href: "/sunday-school" },
 ];
 
 export const staff = [
