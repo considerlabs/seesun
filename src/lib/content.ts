@@ -138,6 +138,6 @@ export const plantingVideos = [
   {
     episode: "Ep.3",
     title: "면, 교회의 형태, 서로와 도시를 담는 공동체",
-    youtubeId: null,
+    youtubeId: "SygPnm2yb0Q",
   },
 ];
