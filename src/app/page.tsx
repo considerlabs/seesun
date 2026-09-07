@@ -208,10 +208,9 @@ export default function HomePage() {
                 Church in ANYANG
               </h2>
               <p className="mt-5 text-[17px] leading-[1.9] text-muted">
-                시선교회는 대한예수교장로회 고신총회에 등록을 준비하는
-                교회입니다. 우리는 웨스트민스터 표준문서의 지향을 따르는
-                장로교회이며, 개혁교회 신앙의 가르침을 따라 예배하고
-                제자됩니다.
+                시선교회는 대한예수교장로회 합신총회에 소속된 교회입니다. 우리는
+                웨스트민스터 표준문서의 지향을 따르는 장로교회이며, 개혁교회
+                신앙의 가르침을 따라 예배하고 제자됩니다.
               </p>
               <div className="mt-8 space-y-3 border-t border-accent/20 pt-6 text-sm">
                 <p>
