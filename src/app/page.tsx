@@ -76,7 +76,7 @@ export default function HomePage() {
           >
             <p className="text-sm font-medium text-accent">안내</p>
             <h2 className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">
-              시선교회 첫방문 가이드
+              첫방문 가이드
             </h2>
             <p className="mt-4 max-w-md text-muted">
               새가족팀이 여러분을 맞이할 준비를 하고 있습니다.
