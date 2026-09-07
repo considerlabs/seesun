@@ -9,6 +9,7 @@ export const church = {
   phone: "070-8800-7712",
   email: "",
   parent: "시광교회",
+  instagram: "https://www.instagram.com/seesun_church",
   mapUrl:
     "https://map.naver.com/p/search/%EC%8B%9C%EC%84%A0%EA%B5%90%ED%9A%8C?c=15.26,0,0,0,dh",
   mapEmbedUrl:

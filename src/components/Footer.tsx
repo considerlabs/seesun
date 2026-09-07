@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { InstagramLogo } from "@phosphor-icons/react/dist/ssr";
 import { church, serviceTimes } from "@/lib/content";
 
 export function Footer() {
@@ -24,6 +25,16 @@ export function Footer() {
           <p className="mt-4 text-xs tracking-[0.18em] text-white/55">
             {church.nameEn}
           </p>
+          <a
+            href={church.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 text-sm text-white/75 transition hover:text-white"
+            aria-label="시선교회 인스타그램"
+          >
+            <InstagramLogo size={20} weight="fill" />
+            @seesun_church
+          </a>
         </div>
 
         <div>
@@ -50,6 +61,17 @@ export function Footer() {
                 className="hover:text-white"
               >
                 {church.phone}
+              </a>
+            </li>
+            <li>
+              Instagram{" "}
+              <a
+                href={church.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                @seesun_church
               </a>
             </li>
           </ul>
