@@ -45,6 +45,8 @@ export default function AboutPage() {
               { href: "/creed", label: "신앙고백" },
               { href: "/gospel", label: "복음의 내용" },
               { href: "/staff", label: "섬기는 사람들" },
+              { href: "/planting", label: "개척이야기" },
+              { href: "/city", label: "도시사역" },
             ].map((item) => (
               <Link
                 key={item.href}
