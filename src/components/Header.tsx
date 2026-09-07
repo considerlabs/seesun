@@ -36,8 +36,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:h-[72px] md:px-6">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="relative h-10 w-10 overflow-hidden rounded-md shadow-[0_2px_8px_rgba(16,72,112,0.25)] md:h-11 md:w-11">
+        <Link href="/" className="flex items-center gap-2.5 md:gap-3">
+          <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md shadow-[0_2px_8px_rgba(16,72,112,0.25)] md:h-11 md:w-11">
             <Image
               src="/img/logo.jpg"
               alt={church.name}
@@ -47,8 +47,13 @@ export function Header() {
               priority
             />
           </span>
-          <span className="text-lg font-bold tracking-tight md:text-xl">
-            {church.name}
+          <span className="flex flex-col leading-tight">
+            <span className="text-[11px] font-medium tracking-tight opacity-80 md:text-xs">
+              대한예수교 장로회
+            </span>
+            <span className="text-base font-bold tracking-tight md:text-lg">
+              {church.name}
+            </span>
           </span>
         </Link>
 
