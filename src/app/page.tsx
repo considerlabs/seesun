@@ -184,8 +184,8 @@ export default function HomePage() {
           <Reveal>
             <div className="relative min-h-[320px] overflow-hidden rounded-2xl md:min-h-full">
               <Image
-                src="https://images.unsplash.com/photo-1770739937287-4a2015308381?auto=format&fit=crop&w=1400&q=80"
-                alt="예배당 내부와 십자가"
+                src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1400&q=80"
+                alt="예배와 소망을 상징하는 빛"
                 fill
                 className="object-cover"
                 sizes="(max-width:768px) 100vw, 55vw"
