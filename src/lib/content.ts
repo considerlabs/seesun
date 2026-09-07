@@ -30,7 +30,6 @@ export const navigation: NavItem[] = [
       { label: "도시사역", href: "/city" },
     ],
   },
-  { label: "처음 방문", href: "/visit" },
   {
     label: "말씀",
     href: "/sermons",
