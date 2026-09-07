@@ -11,15 +11,15 @@ export const metadata: Metadata = {
   },
   description: church.tagline,
   icons: {
-    icon: "/img/logo.png",
-    apple: "/img/logo.png",
+    icon: "/img/logo.jpg",
+    apple: "/img/logo.jpg",
   },
   openGraph: {
     title: church.name,
     description: church.tagline,
     locale: "ko_KR",
     type: "website",
-    images: [{ url: "/img/logo.png" }],
+    images: [{ url: "/img/logo.jpg" }],
   },
 };
 
