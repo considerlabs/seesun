@@ -93,9 +93,9 @@ export default function HomePage() {
       </section>
 
       <section className="bg-background">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:gap-14 md:px-6 md:py-24">
-          <Reveal>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl md:aspect-[5/6]">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:gap-14 md:px-6 md:py-24">
+          <Reveal className="h-full">
+            <div className="relative min-h-[320px] h-full overflow-hidden rounded-2xl md:min-h-full">
               <Image
                 src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1200&q=80"
                 alt="열린 성경과 따뜻한 빛"
