@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { church, serviceTimes } from "@/lib/content";
 
 export function Footer() {
@@ -42,7 +41,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold">문의</p>
           <ul className="mt-4 space-y-2 text-sm text-white/75">
-            <li>교회명 대한예수교 장로회 {church.name}</li>
+            <li>대한예수교 장로회 {church.name}</li>
             <li>주소 {church.address}</li>
             <li>
               Tel{" "}
@@ -53,14 +52,7 @@ export function Footer() {
                 {church.phone}
               </a>
             </li>
-            <li>{church.denomination}</li>
           </ul>
-          <Link
-            href="/visit"
-            className="mt-5 inline-block text-sm font-semibold text-white/80 hover:text-white"
-          >
-            첫방문 가이드
-          </Link>
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-white/50">
