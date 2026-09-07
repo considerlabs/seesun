@@ -2,7 +2,7 @@
 
 ## Product
 
-Public marketing site for **시선교회** (Seesun Church), modeled after seetheglory.or.kr. Static pages only: church intro, creed, gospel, staff, visit guide, notices, sermons placeholders, Sunday school.
+Public marketing site for **시선교회** (Seesun Church), modeled after seetheglory.or.kr. Static pages: church intro, creed, gospel, staff, 시선집 (Instagram CTA), visit guide, notices, sermons placeholders, planting videos, Sunday school, home directions/map.
 
 ## Stack
 
@@ -13,17 +13,19 @@ Public marketing site for **시선교회** (Seesun Church), modeled after seethe
 ## Trust boundaries
 
 - Entirely public. No auth, sessions, DB, or server-side secrets.
-- Content is compile-time / static. Contact phone is displayed in UI.
-- External images: Unsplash (configured in `next.config.ts`). Staff photos served from `public/img/`.
+- Content is compile-time / static. Contact phone and Instagram are displayed in UI.
+- External: Unsplash images (`next.config.ts`), Google Maps embed (home), Naver Map outbound link, YouTube embeds (planting), Instagram outbound links.
 
 ## Known risks / assumptions
 
-- Sermon, 시선집 (magazine), and planting video slots are placeholders until real media is provided.
-- Exact street address and service times live in `src/lib/content.ts` (`church.address`, `serviceTimes`).
-- Vercel SSO deployment protection must stay **disabled** for public access (`vercel project protection`).
+- Sermon list remains a placeholder until real media is provided.
+- 시선집 page is intro + Instagram deep link; no in-site article CMS yet.
+- Naver Map cannot be iframed (`X-Frame-Options: DENY`); home map uses Google embed + Naver link button.
+- After `vercel --prod`, re-alias `seesun-church.vercel.app` if the public domain did not update.
+- Vercel SSO deployment protection must stay **disabled** for public access.
 
 ## Related documents
 
-- `documentation/인수인계.md` — handoff (runbook, routes, content editing, deploy)
-- No `emails.md` / `cron.md` / `automation.md` / `permissions.md` / `variables.md` — capabilities not present
-- No automated test suite yet (`tests.md` not produced)
+- `documentation/인수인계.md` — handoff (runbook, nav, content, deploy, checklist)
+- No `emails.md` / `cron.md` / `automation.md` / `permissions.md` / `variables.md`
+- No automated test suite yet
