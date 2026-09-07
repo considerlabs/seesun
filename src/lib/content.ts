@@ -44,7 +44,7 @@ export const navigation: NavItem[] = [
     children: [
       { label: "설교", href: "/sermons" },
       { label: "공지사항", href: "/notices" },
-      { label: "월간지", href: "/magazine" },
+      { label: "시선집", href: "/magazine" },
     ],
   },
   { label: "개척이야기", href: "/planting" },

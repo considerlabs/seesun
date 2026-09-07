@@ -4,7 +4,7 @@ import { Prose, SectionShell } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "월간지",
+  title: "시선집",
 };
 
 export default function MagazinePage() {
@@ -12,7 +12,7 @@ export default function MagazinePage() {
     <>
       <PageHero
         eyebrow="Magazine"
-        title="월간지"
+        title="시선집"
         description="성도들의 일상과 신앙을 나누는 공간"
       />
       <SectionShell>
@@ -22,12 +22,12 @@ export default function MagazinePage() {
               COMING SOON
             </p>
             <h2 className="mt-4 text-2xl font-bold md:text-3xl">
-              월간지 준비 중
+              시선집 준비 중
             </h2>
             <div className="mx-auto mt-6 max-w-xl">
               <Prose>
                 <p>
-                  시선교회 성도들의 일상과 신앙을 공유하는 장인 월간지는 준비
+                  시선교회 성도들의 일상과 신앙을 공유하는 장인 시선집은 준비
                   중입니다. 곧 이 자리에서 만나뵙겠습니다.
                 </p>
               </Prose>
