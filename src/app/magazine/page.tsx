@@ -13,26 +13,17 @@ export default function MagazinePage() {
       <PageHero
         eyebrow="Magazine"
         title="시선집"
-        description="성도들의 일상과 신앙을 나누는 공간"
+        description="성도들의 일상과 신앙을 나누는 글모임"
       />
       <SectionShell>
         <Reveal>
-          <div className="rounded-2xl border border-dashed border-accent/40 bg-accent-soft/60 px-6 py-16 text-center md:px-10">
-            <p className="text-sm font-semibold tracking-[0.16em] text-accent">
-              COMING SOON
+          <Prose>
+            <p>
+              시선집은 성도들의 일상을 나누고, 서로를 더욱 잘 이해하며, 믿음의
+              분투를 함께하고자 만든 성도들의 글모임입니다. 시선집을 통해
+              풍성하고 깊은 교제를 나누고자 합니다.
             </p>
-            <h2 className="mt-4 text-2xl font-bold md:text-3xl">
-              시선집 준비 중
-            </h2>
-            <div className="mx-auto mt-6 max-w-xl">
-              <Prose>
-                <p>
-                  시선교회 성도들의 일상과 신앙을 공유하는 장인 시선집은 준비
-                  중입니다. 곧 이 자리에서 만나뵙겠습니다.
-                </p>
-              </Prose>
-            </div>
-          </div>
+          </Prose>
         </Reveal>
       </SectionShell>
     </>
