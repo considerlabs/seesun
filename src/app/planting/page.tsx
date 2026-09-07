@@ -38,18 +38,38 @@ export default function PlantingPage() {
           </Prose>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {plantingVideos.map((video, i) => (
-            <Reveal key={video.title} delay={i * 0.06}>
-              <div className="overflow-hidden rounded-2xl border border-line bg-surface">
-                <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-brand-deep to-accent text-sm font-medium tracking-wide text-white/80">
-                  영상 준비 중
-                </div>
+            <Reveal key={video.episode} delay={i * 0.06}>
+              <article className="overflow-hidden rounded-2xl border border-line bg-surface">
+                {video.youtubeId ? (
+                  <div className="relative aspect-video bg-brand-deep">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                      title={`${video.episode} ${video.title}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full border-0"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-brand-deep to-accent text-sm font-medium tracking-wide text-white/85">
+                    준비중
+                  </div>
+                )}
                 <div className="p-5">
-                  <h3 className="text-lg font-bold">{video.title}</h3>
-                  <p className="mt-2 text-sm text-muted">{video.description}</p>
+                  <p className="text-sm font-semibold text-accent">
+                    {video.episode}
+                  </p>
+                  <h3 className="mt-2 text-lg font-bold leading-snug">
+                    {video.title}
+                  </h3>
+                  {!video.youtubeId ? (
+                    <p className="mt-2 text-sm text-muted">영상 준비중</p>
+                  ) : null}
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>

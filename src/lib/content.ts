@@ -126,15 +126,18 @@ export const sundaySchool = [
 
 export const plantingVideos = [
   {
-    title: "흩어지는 교회",
-    description: "모이는 교회가 흩어져 도시를 섬기는 이야기",
+    episode: "Ep.1",
+    title: "선, 시선교회 개척의 시작, 그 꿈과 마음",
+    youtubeId: "KoJqnu3m-YE",
   },
   {
-    title: "도시 개척",
-    description: "다수의 교회가 도시 곳곳에 세워지는 비전",
+    episode: "Ep.2",
+    title: "선, 마음의 연결, 개척 준비의 과정",
+    youtubeId: "6gKAAR3MNNE",
   },
   {
-    title: "와서 보라",
-    description: "안양에서 확신과 기쁨, 희망을 발견하도록",
+    episode: "Ep.3",
+    title: "면, 교회의 형태, 서로와 도시를 담는 공동체",
+    youtubeId: null,
   },
 ];
