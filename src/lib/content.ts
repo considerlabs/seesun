@@ -2,7 +2,7 @@ export const church = {
   name: "시선교회",
   nameEn: "SEE SUN CHURCH",
   tagline: "도시 안에 복음, 복음이 세우는 공동체, 공동체가 섬기는 도시",
-  denomination: "대한예수교장로회 합신총회",
+  denomination: "대한예수교장로회",
   founded: "2025년 11월 2일",
   city: "경기도 안양시",
   address: "경기 안양시 만안구 병목안로 6, 백우현진빌딩 4층",
