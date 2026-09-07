@@ -37,6 +37,7 @@ export const navigation: NavItem[] = [
       { label: "신앙고백", href: "/creed" },
       { label: "복음의 내용", href: "/gospel" },
       { label: "섬기는 사람들", href: "/staff" },
+      { label: "시선집", href: "/magazine" },
     ],
   },
   {
@@ -45,7 +46,6 @@ export const navigation: NavItem[] = [
     children: [
       { label: "설교", href: "/sermons" },
       { label: "공지사항", href: "/notices" },
-      { label: "시선집", href: "/magazine" },
     ],
   },
   { label: "개척이야기", href: "/planting" },
