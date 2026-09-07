@@ -223,7 +223,7 @@ export default function HomePage() {
                 </p>
                 <p>
                   <span className="font-semibold text-foreground">문의</span>{" "}
-                  {church.phone} ({church.phoneLabel})
+                  {church.phone}
                 </p>
               </div>
             </div>

@@ -47,7 +47,7 @@ export function Footer() {
             <li>교회명 {church.name}</li>
             <li>위치 {church.city}</li>
             <li>
-              Tel {church.phone} ({church.phoneLabel})
+              Tel {church.phone}
             </li>
             <li>{church.denomination}</li>
           </ul>

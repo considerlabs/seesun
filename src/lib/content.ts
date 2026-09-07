@@ -7,7 +7,6 @@ export const church = {
   city: "경기도 안양시",
   address: "경기도 안양시",
   phone: "010-2268-8278",
-  phoneLabel: "오로라 전도사",
   email: "",
   parent: "시광교회",
 };

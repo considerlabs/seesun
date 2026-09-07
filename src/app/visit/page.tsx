@@ -166,8 +166,7 @@ export default function VisitPage() {
                   className="font-semibold text-accent hover:underline"
                 >
                   {church.phone}
-                </a>{" "}
-                ({church.phoneLabel})
+                </a>
               </p>
             </div>
           </Reveal>
@@ -197,8 +196,7 @@ export default function VisitPage() {
                   className="font-semibold text-accent hover:underline"
                 >
                   {church.phone}
-                </a>{" "}
-                ({church.phoneLabel})
+                </a>
               </p>
             </div>
           </Reveal>
