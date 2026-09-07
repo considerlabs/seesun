@@ -8,17 +8,17 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, description }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-[#0d2d34] text-white">
+    <section className="relative overflow-hidden bg-brand-deep text-white">
       <div
-        className="absolute inset-0 opacity-40"
+        className="absolute inset-0 opacity-50"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(10,155,176,0.45), transparent 40%), radial-gradient(circle at 80% 0%, rgba(255,255,255,0.12), transparent 35%)",
+            "radial-gradient(circle at 18% 20%, rgba(26,106,156,0.45), transparent 42%), radial-gradient(circle at 82% 0%, rgba(255,255,255,0.1), transparent 34%)",
         }}
       />
       <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-28 md:px-6 md:pb-16 md:pt-32">
         {eyebrow ? (
-          <p className="text-sm font-medium tracking-[0.16em] text-accent-bright">
+          <p className="text-sm font-medium tracking-[0.16em] text-white/70">
             {eyebrow}
           </p>
         ) : null}

@@ -131,7 +131,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#0d2d34] text-white">
+      <section className="bg-brand-deep text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
           <Reveal>
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight md:text-4xl">
@@ -190,7 +190,7 @@ export default function HomePage() {
                 className="object-cover"
                 sizes="(max-width:768px) 100vw, 55vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d2d34]/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/85 to-transparent" />
               <div className="absolute bottom-0 p-6 text-white md:p-8">
                 <p className="text-sm tracking-[0.16em] text-accent-bright">
                   ANYANG
@@ -295,7 +295,7 @@ export default function HomePage() {
               <Reveal key={sermon.id} delay={i * 0.06}>
                 <Link
                   href="/sermons"
-                  className="block rounded-2xl border border-line bg-surface p-6 transition hover:border-accent/40 hover:shadow-[0_12px_40px_rgba(5,107,123,0.08)]"
+                  className="block rounded-2xl border border-line bg-surface p-6 transition hover:border-accent/40 hover:shadow-[0_12px_40px_rgba(16,72,112,0.1)]"
                 >
                   <p className="text-sm text-accent">{sermon.category}</p>
                   <h3 className="mt-2 text-xl font-bold">{sermon.title}</h3>

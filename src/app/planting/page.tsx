@@ -42,7 +42,7 @@ export default function PlantingPage() {
           {plantingVideos.map((video, i) => (
             <Reveal key={video.title} delay={i * 0.06}>
               <div className="overflow-hidden rounded-2xl border border-line bg-surface">
-                <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-[#0d2d34] to-accent text-sm font-medium tracking-wide text-white/80">
+                <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-brand-deep to-accent text-sm font-medium tracking-wide text-white/80">
                   영상 준비 중
                 </div>
                 <div className="p-5">

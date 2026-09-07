@@ -49,9 +49,9 @@ export default function AboutPage() {
               <figure className="relative mx-auto w-full max-w-md">
                 <div
                   aria-hidden
-                  className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgba(5,107,123,0.12),transparent_68%)] md:-inset-8"
+                  className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgba(16,72,112,0.14),transparent_68%)] md:-inset-8"
                 />
-                <div className="relative overflow-hidden rounded-[1.5rem] border border-line/80 bg-white p-6 shadow-[0_24px_60px_rgba(5,107,123,0.08)] md:p-8">
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-line/80 bg-white p-6 shadow-[0_24px_60px_rgba(16,72,112,0.1)] md:p-8">
                   <Image
                     src="/img/about.jpg"
                     alt="도시 속 복음, 복음 중심 공동체, 공동체가 섬기는 도시가 예배를 중심으로 순환하는 시선교회 비전"

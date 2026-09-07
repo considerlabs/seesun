@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -31,12 +32,24 @@ export function Header() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         overlay
           ? "bg-transparent text-white"
-          : "border-b border-line/80 bg-surface/95 text-foreground shadow-[0_8px_30px_rgba(5,107,123,0.06)] backdrop-blur-md"
+          : "border-b border-line/80 bg-surface/95 text-foreground shadow-[0_8px_30px_rgba(16,72,112,0.08)] backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:h-[72px] md:px-6">
-        <Link href="/" className="text-xl font-bold tracking-tight md:text-2xl">
-          {church.name}
+        <Link href="/" className="flex items-center gap-2.5">
+          <span className="relative h-10 w-10 overflow-hidden rounded-md shadow-[0_2px_8px_rgba(16,72,112,0.25)] md:h-11 md:w-11">
+            <Image
+              src="/img/logo.jpg"
+              alt={church.name}
+              fill
+              className="object-cover"
+              sizes="44px"
+              priority
+            />
+          </span>
+          <span className="text-lg font-bold tracking-tight md:text-xl">
+            {church.name}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

@@ -1,16 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 import { church, serviceTimes } from "@/lib/content";
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-[#0d2d34] text-white">
+    <footer className="border-t border-line bg-brand-deep text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.3fr_1fr_1.2fr] md:px-6">
         <div>
-          <p className="text-2xl font-bold tracking-tight">{church.name}</p>
+          <div className="flex items-center gap-3">
+            <span className="relative h-11 w-11 overflow-hidden rounded-md">
+              <Image
+                src="/img/logo.jpg"
+                alt=""
+                fill
+                className="object-cover"
+                sizes="44px"
+              />
+            </span>
+            <p className="text-2xl font-bold tracking-tight">{church.name}</p>
+          </div>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
             {church.tagline}
           </p>
-          <p className="mt-4 text-xs tracking-[0.18em] text-accent-bright">
+          <p className="mt-4 text-xs tracking-[0.18em] text-white/55">
             {church.nameEn}
           </p>
         </div>
@@ -45,7 +57,7 @@ export function Footer() {
           </ul>
           <Link
             href="/visit"
-            className="mt-5 inline-block text-sm font-semibold text-accent-bright hover:text-white"
+            className="mt-5 inline-block text-sm font-semibold text-white/80 hover:text-white"
           >
             첫방문 가이드
           </Link>
