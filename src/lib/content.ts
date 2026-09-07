@@ -38,8 +38,6 @@ export const navigation: NavItem[] = [
       { label: "섬기는 사람들", href: "/staff" },
     ],
   },
-  { label: "개척이야기", href: "/planting" },
-  { label: "도시사역", href: "/city" },
   {
     label: "말씀",
     href: "/sermons",
@@ -49,7 +47,9 @@ export const navigation: NavItem[] = [
       { label: "월간지", href: "/magazine" },
     ],
   },
-  { label: "주일학교안내", href: "/sunday-school" },
+  { label: "개척이야기", href: "/planting" },
+  { label: "도시사역", href: "/city" },
+  { label: "주일학교 안내", href: "/sunday-school" },
 ];
 
 export const staff = [
