@@ -184,8 +184,8 @@ export default function HomePage() {
           <Reveal>
             <div className="relative min-h-[320px] overflow-hidden rounded-2xl md:min-h-full">
               <Image
-                src="https://images.unsplash.com/photo-1478144592103-25e218a04891?auto=format&fit=crop&w=1400&q=80"
-                alt="도시 풍경"
+                src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1400&q=80"
+                alt="예배당 내부"
                 fill
                 className="object-cover"
                 sizes="(max-width:768px) 100vw, 55vw"
