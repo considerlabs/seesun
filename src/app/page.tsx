@@ -308,6 +308,82 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
+          <Reveal>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              오시는 길
+            </h2>
+            <p className="mt-4 max-w-2xl text-[17px] leading-[1.9] text-muted">
+              시선교회는 안양시 만안구 병목안로에 위치한 백우현진빌딩 4층에서
+              예배합니다. 처음 방문하시는 분들은 아래 지도를 참고해 주세요.
+            </p>
+          </Reveal>
+
+          <div className="mt-10 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
+            <Reveal>
+              <div className="space-y-6 text-[15px] leading-relaxed">
+                <div>
+                  <p className="text-sm font-semibold text-foreground">주소</p>
+                  <p className="mt-2 text-muted">{church.address}</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">연락처</p>
+                  <p className="mt-2 text-muted">
+                    <a
+                      href={`tel:${church.phone.replace(/-/g, "")}`}
+                      className="text-accent hover:underline"
+                    >
+                      {church.phone}
+                    </a>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    예배 시간
+                  </p>
+                  <ul className="mt-2 space-y-1.5 text-muted">
+                    {serviceTimes.map((item) => (
+                      <li
+                        key={item.name}
+                        className="flex justify-between gap-4"
+                      >
+                        <span>{item.name}</span>
+                        <span className="shrink-0 text-foreground">
+                          {item.time}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a
+                  href={church.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110"
+                >
+                  네이버 지도에서 보기
+                  <ArrowRight size={16} weight="bold" />
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.08} className="h-full">
+              <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-line bg-background md:min-h-full md:h-full">
+                <iframe
+                  title="시선교회 오시는 길"
+                  src={church.mapEmbedUrl}
+                  className="absolute inset-0 h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

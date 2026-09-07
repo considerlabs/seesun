@@ -9,6 +9,10 @@ export const church = {
   phone: "070-8800-7712",
   email: "",
   parent: "시광교회",
+  mapUrl:
+    "https://map.naver.com/p/search/%EC%8B%9C%EC%84%A0%EA%B5%90%ED%9A%8C?c=15.26,0,0,0,dh",
+  mapEmbedUrl:
+    "https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0+%EC%95%88%EC%96%91%EC%8B%9C+%EB%A7%8C%EC%95%88%EA%B5%AC+%EB%B3%91%EB%AA%A9%EC%95%88%EB%A1%9C+6+%EB%B0%B1%EC%9A%B0%ED%98%84%EC%A7%84%EB%B9%8C%EB%94%A9&hl=ko&z=16&output=embed",
 };
 
 export const serviceTimes = [
