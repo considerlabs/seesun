@@ -3,7 +3,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { SectionShell } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import { church } from "@/lib/content";
+import { church, serviceTimes } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "처음 방문하셨다면",
@@ -168,6 +168,41 @@ export default function VisitPage() {
                   {church.phone}
                 </a>
               </p>
+              <p className="mt-3 text-sm text-muted">{church.address}</p>
+            </div>
+          </Reveal>
+        </SectionShell>
+      </section>
+
+      <section className="border-b border-line bg-background">
+        <SectionShell className="!py-12 md:!py-14">
+          <Reveal>
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-center text-xl font-bold md:text-2xl">
+                예배 안내
+              </h2>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                <div>
+                  <p className="text-sm font-semibold text-accent">예배 장소</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-foreground">
+                    {church.address}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-accent">예배 시간</p>
+                  <ul className="mt-2 space-y-1.5 text-[15px] text-foreground">
+                    {serviceTimes.map((item) => (
+                      <li
+                        key={item.name}
+                        className="flex justify-between gap-4"
+                      >
+                        <span>{item.name}</span>
+                        <span className="shrink-0 text-muted">{item.time}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </Reveal>
         </SectionShell>

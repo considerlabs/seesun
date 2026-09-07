@@ -19,7 +19,7 @@ Public marketing site for **시선교회** (Seesun Church), modeled after seethe
 ## Known risks / assumptions
 
 - Sermon, magazine, and planting video slots are placeholders until real media is provided.
-- Exact street address / map not yet available in content.
+- Exact street address and service times live in `src/lib/content.ts` (`church.address`, `serviceTimes`).
 - Vercel SSO deployment protection must stay **disabled** for public access (`vercel project protection`).
 
 ## Related documents

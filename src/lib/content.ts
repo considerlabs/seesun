@@ -5,11 +5,17 @@ export const church = {
   denomination: "대한예수교장로회 합신총회",
   founded: "2025년 11월 2일",
   city: "경기도 안양시",
-  address: "경기도 안양시",
-  phone: "010-2268-8278",
+  address: "경기 안양시 만안구 병목안로 6, 백우현진빌딩 4층",
+  phone: "070-8800-7712",
   email: "",
   parent: "시광교회",
 };
+
+export const serviceTimes = [
+  { name: "주일오전예배", time: "11:00~12:30" },
+  { name: "주일오후예배", time: "14:00~15:00" },
+  { name: "금요기도회", time: "20:30~22:00" },
+];
 
 export type NavItem = {
   label: string;

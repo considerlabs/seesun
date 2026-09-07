@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Marquee } from "@/components/Marquee";
 import { Reveal } from "@/components/Reveal";
-import { church, notices, sermons } from "@/lib/content";
+import { church, notices, sermons, serviceTimes } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -195,9 +195,9 @@ export default function HomePage() {
                 <p className="text-sm tracking-[0.16em] text-accent-bright">
                   ANYANG
                 </p>
-                <h3 className="mt-2 text-2xl font-bold">{church.city}</h3>
-                <p className="mt-2 text-sm text-white/80">
-                  개척일 {church.founded}
+                <h3 className="mt-2 text-2xl font-bold">예배 장소</h3>
+                <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/85">
+                  {church.address}
                 </p>
               </div>
             </div>
@@ -212,18 +212,37 @@ export default function HomePage() {
                 웨스트민스터 표준문서의 지향을 따르는 장로교회이며, 개혁교회
                 신앙의 가르침을 따라 예배하고 제자됩니다.
               </p>
-              <div className="mt-8 space-y-3 border-t border-accent/20 pt-6 text-sm">
+              <div className="mt-8 space-y-4 border-t border-accent/20 pt-6 text-sm">
+                <div>
+                  <p className="font-semibold text-foreground">예배 장소</p>
+                  <p className="mt-1 text-muted">{church.address}</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">예배 시간</p>
+                  <ul className="mt-2 space-y-1.5 text-muted">
+                    {serviceTimes.map((item) => (
+                      <li
+                        key={item.name}
+                        className="flex justify-between gap-4"
+                      >
+                        <span>{item.name}</span>
+                        <span className="shrink-0 text-foreground">
+                          {item.time}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <p>
-                  <span className="font-semibold text-foreground">교회명</span>{" "}
-                  {church.name}
-                </p>
-                <p>
-                  <span className="font-semibold text-foreground">위치</span>{" "}
-                  {church.city}
-                </p>
-                <p>
-                  <span className="font-semibold text-foreground">문의</span>{" "}
-                  {church.phone}
+                  <span className="font-semibold text-foreground">
+                    교회 연락처
+                  </span>{" "}
+                  <a
+                    href={`tel:${church.phone.replace(/-/g, "")}`}
+                    className="text-accent hover:underline"
+                  >
+                    {church.phone}
+                  </a>
                 </p>
               </div>
             </div>
