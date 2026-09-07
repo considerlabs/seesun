@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Prose, SectionShell } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
@@ -103,24 +102,6 @@ export default function AboutPage() {
               이것이 우리가 안양시에 시선교회를 세운 이유입니다.
             </p>
           </Prose>
-
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { href: "/creed", label: "신앙고백" },
-              { href: "/gospel", label: "복음의 내용" },
-              { href: "/staff", label: "섬기는 사람들" },
-              { href: "/planting", label: "개척이야기" },
-              { href: "/city", label: "도시사역" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-xl border border-line bg-surface px-5 py-4 text-center font-semibold transition hover:border-accent/40 hover:text-accent"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
         </Reveal>
       </SectionShell>
     </>
