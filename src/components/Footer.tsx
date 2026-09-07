@@ -42,7 +42,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold">문의</p>
           <ul className="mt-4 space-y-2 text-sm text-white/75">
-            <li>교회명 {church.name}</li>
+            <li>교회명 대한예수교 장로회 {church.name}</li>
             <li>주소 {church.address}</li>
             <li>
               Tel{" "}
