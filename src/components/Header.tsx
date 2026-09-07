@@ -39,7 +39,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2.5 md:gap-3">
           <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md shadow-[0_2px_8px_rgba(16,72,112,0.25)] md:h-11 md:w-11">
             <Image
-              src="/img/logo.jpg"
+              src="/img/logo.png"
               alt={church.name}
               fill
               className="object-cover"

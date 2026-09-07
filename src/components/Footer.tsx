@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <span className="relative h-11 w-11 overflow-hidden rounded-md">
               <Image
-                src="/img/logo.jpg"
+                src="/img/logo.png"
                 alt=""
                 fill
                 className="object-cover"
