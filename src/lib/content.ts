@@ -38,6 +38,7 @@ export const navigation: NavItem[] = [
       { label: "복음의 내용", href: "/gospel" },
       { label: "섬기는 사람들", href: "/staff" },
       { label: "시선집", href: "/magazine" },
+      { label: "교육", href: "/education" },
     ],
   },
   {
@@ -124,6 +125,33 @@ export const sundaySchool = [
       { time: "11:00~12:00", activity: "초등부 활동" },
       { time: "14:00~15:00", activity: "초등부 예배" },
     ],
+  },
+];
+
+export const education = [
+  {
+    name: "새가족교육",
+    schedule: "6주 과정",
+    description:
+      "기본적인 성경의 가르침(교리)를 배우고, 교회의 문화와 교제를 익히는 교육 과정입니다.",
+  },
+  {
+    name: "리더교육",
+    schedule: "매월 1회",
+    description:
+      "교회의 비전을 공유하고, 복음적인 문화를 만들기 위해 리더를 교육하는 시간입니다.",
+  },
+  {
+    name: "제자훈련",
+    schedule: "내년부터 실행 예정",
+    description:
+      "소그룹 리더 양성교육 프로그램입니다. 이 훈련 프로그램을 통해 복음이 삶에서 어떻게 적용되는지 자세히 배우고, 훈련하는 시간을 보냅니다. 무엇보다 훈련생끼리 사랑과 섬김을 나눕니다.",
+  },
+  {
+    name: "시선아카데미",
+    schedule: "매 시기 필요에 따라",
+    description:
+      "성경의 다양한 주제와 교리들을 살피고, 일상생활에 필요한 삶의 주제들(예를 들면 결혼, 세례)로 교육을 하는 시간입니다.",
   },
 ];
 
