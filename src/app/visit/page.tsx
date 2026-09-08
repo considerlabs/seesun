@@ -211,33 +211,7 @@ export default function VisitPage() {
       <section className="bg-background">
         <SectionShell>
           <Reveal>
-            <h2 className="text-center text-2xl font-bold tracking-tight md:text-3xl">
-              처음 방문하셨다면?
-            </h2>
-            <div className="mx-auto mt-8 max-w-3xl text-center">
-              <p className="text-xl font-bold">환영합니다!</p>
-              <p className="mt-4 text-[17px] leading-[1.9] text-muted">
-                새가족팀이 여러분들을 맞이할 준비를 하고 있습니다.
-                <br className="hidden sm:block" />
-                조용히 예배만 드리고 가고 싶으시다면 안내하는 저희 교우에게
-                말씀해 주세요.
-                <br className="hidden sm:block" />
-                미리 상황을 확인하고 싶으시다면 아래로 연락주세요.
-              </p>
-              <p className="mt-6 text-[15px] text-foreground">
-                tel{" "}
-                <a
-                  href={`tel:${church.phone.replace(/-/g, "")}`}
-                  className="font-semibold text-accent hover:underline"
-                >
-                  {church.phone}
-                </a>
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <h3 className="mt-16 text-center text-xl font-bold md:text-2xl">
+            <h3 className="text-center text-2xl font-bold tracking-tight md:text-3xl">
               주일예배 첫 방문
             </h3>
             <StepRow steps={firstVisitSteps} />
@@ -260,7 +234,7 @@ export default function VisitPage() {
           </Reveal>
 
           <Reveal>
-            <h3 className="mt-16 text-center text-xl font-bold md:text-2xl">
+            <h3 className="mt-16 text-center text-2xl font-bold tracking-tight md:text-3xl">
               주일예배 첫 방문 후
             </h3>
             <StepRow steps={afterVisitSteps} />
