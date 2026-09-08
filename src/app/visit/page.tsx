@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { church } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "처음 방문하셨다면",
+  title: "처음 방문하셨다면?",
 };
 
 const firstVisitSteps = [
