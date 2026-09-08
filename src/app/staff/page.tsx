@@ -22,7 +22,10 @@ export default function StaffPage() {
           {staff.map((person, i) => (
             <Reveal key={person.name} delay={i * 0.06}>
               <article className="overflow-hidden rounded-2xl border border-line bg-surface md:grid md:grid-cols-[240px_1fr]">
-                <div className="relative aspect-square bg-accent-soft md:aspect-auto md:min-h-full">
+                <div
+                  className="relative aspect-square bg-accent-soft md:aspect-auto md:min-h-full"
+                  style={person.imageBg ? { backgroundColor: person.imageBg } : undefined}
+                >
                   <Image
                     src={person.image}
                     alt={person.name}
