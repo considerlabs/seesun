@@ -61,7 +61,7 @@ const afterVisitSteps = [
     step: 6,
     image: "/img/visit/step6.png",
     lines: [
-      "새가족 소그룹(6-7주)을 거쳐",
+      "새가족교육(6-7주)을 거쳐",
       "소그룹에 배정됩니다.",
     ],
   },
@@ -70,7 +70,7 @@ const afterVisitSteps = [
     image: "/img/visit/step7.png",
     lines: [
       "이후에 담임목사와의 만남을 가지고,",
-      "새가족교육(7주) 프로그램을 이수하면",
+      "새가족교육 프로그램을 이수하면",
       "정식으로 등록교인이 됩니다.",
     ],
   },
