@@ -6,12 +6,11 @@ import { createNotice, deleteNotice, updateNotice } from "@/lib/notices-db";
 
 function readNotice(formData: FormData) {
   const title = String(formData.get("title") ?? "").trim();
-  const date = String(formData.get("date") ?? "").trim();
   const summary = String(formData.get("summary") ?? "").trim();
-  if (!title || !date || !summary) {
-    throw new Error("제목, 날짜, 내용을 모두 입력해 주세요.");
+  if (!title || !summary) {
+    throw new Error("제목과 내용을 모두 입력해 주세요.");
   }
-  return { title, date, summary };
+  return { title, summary };
 }
 
 function revalidateNotices() {

@@ -1,27 +1,17 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getNotice } from "@/lib/notices-db";
-import { updateNoticeAction } from "../../actions";
+import { createNoticeAction } from "../actions";
 
 export const metadata: Metadata = {
-  title: "공지사항 수정",
+  title: "공지사항 글쓰기",
 };
 
-export default async function EditNoticePage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-  const notice = await getNotice(Number(id));
-  if (!notice) notFound();
-
+export default function NewNoticePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:px-6">
-      <h1 className="text-2xl font-bold">공지사항 수정</h1>
+      <h1 className="text-2xl font-bold">공지사항 글쓰기</h1>
 
       <form
-        action={updateNoticeAction.bind(null, notice.id)}
+        action={createNoticeAction}
         className="mt-8 space-y-4 rounded-lg border border-line bg-surface p-6"
       >
         <div>
@@ -32,7 +22,6 @@ export default async function EditNoticePage({
             id="title"
             name="title"
             required
-            defaultValue={notice.title}
             className="mt-1 w-full rounded border border-line px-3 py-2"
           />
         </div>
@@ -44,8 +33,7 @@ export default async function EditNoticePage({
             id="summary"
             name="summary"
             required
-            rows={4}
-            defaultValue={notice.summary}
+            rows={6}
             className="mt-1 w-full rounded border border-line px-3 py-2"
           />
         </div>
@@ -53,7 +41,7 @@ export default async function EditNoticePage({
           type="submit"
           className="rounded bg-accent px-4 py-2 font-semibold text-white"
         >
-          저장
+          등록
         </button>
       </form>
     </div>

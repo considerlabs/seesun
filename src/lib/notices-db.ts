@@ -3,46 +3,82 @@ import { ensureSchema, getSql } from "@/lib/db";
 export type Notice = {
   id: number;
   title: string;
-  date: string;
   summary: string;
+  /** "YYYY.MM.DD" — matches the public notices page's existing display format */
+  date: string;
+  /** raw ISO timestamp, for admin's date+time display */
+  createdAt: string;
 };
+
+function toKSTParts(value: string | Date) {
+  const d = new Date(value);
+  const parts = new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(d);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+  return { y: get("year"), m: get("month"), d: get("day"), h: get("hour"), min: get("minute") };
+}
+
+export function formatNoticeDate(value: string | Date) {
+  const { y, m, d } = toKSTParts(value);
+  return `${y}.${m}.${d}`;
+}
+
+export function formatNoticeDateTime(value: string | Date) {
+  const { y, m, d, h, min } = toKSTParts(value);
+  return `${y}.${m}.${d} ${h}:${min}`;
+}
+
+type NoticeRow = { id: number; title: string; summary: string; created_at: string };
+
+function mapRow(row: NoticeRow): Notice {
+  return {
+    id: row.id,
+    title: row.title,
+    summary: row.summary,
+    date: formatNoticeDate(row.created_at),
+    createdAt: new Date(row.created_at).toISOString(),
+  };
+}
 
 export async function getNotices(): Promise<Notice[]> {
   await ensureSchema();
   const sql = getSql();
   const rows = await sql`
-    SELECT id, title, date, summary FROM notices ORDER BY created_at DESC
+    SELECT id, title, summary, created_at FROM notices ORDER BY created_at DESC
   `;
-  return rows as Notice[];
+  return (rows as NoticeRow[]).map(mapRow);
 }
 
 export async function getNotice(id: number): Promise<Notice | null> {
   await ensureSchema();
   const sql = getSql();
   const rows = await sql`
-    SELECT id, title, date, summary FROM notices WHERE id = ${id}
+    SELECT id, title, summary, created_at FROM notices WHERE id = ${id}
   `;
-  return (rows[0] as Notice) ?? null;
+  const row = rows[0] as NoticeRow | undefined;
+  return row ? mapRow(row) : null;
 }
 
-export async function createNotice(data: { title: string; date: string; summary: string }) {
+export async function createNotice(data: { title: string; summary: string }) {
   await ensureSchema();
   const sql = getSql();
   await sql`
-    INSERT INTO notices (title, date, summary)
-    VALUES (${data.title}, ${data.date}, ${data.summary})
+    INSERT INTO notices (title, summary) VALUES (${data.title}, ${data.summary})
   `;
 }
 
-export async function updateNotice(
-  id: number,
-  data: { title: string; date: string; summary: string }
-) {
+export async function updateNotice(id: number, data: { title: string; summary: string }) {
   await ensureSchema();
   const sql = getSql();
   await sql`
-    UPDATE notices SET title = ${data.title}, date = ${data.date}, summary = ${data.summary}
-    WHERE id = ${id}
+    UPDATE notices SET title = ${data.title}, summary = ${data.summary} WHERE id = ${id}
   `;
 }
 

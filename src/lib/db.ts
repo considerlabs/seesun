@@ -15,16 +15,18 @@ let schemaReady: Promise<unknown> | null = null;
 
 export function ensureSchema() {
   if (!schemaReady) {
-    const sql = getSql();
-    schemaReady = sql`
-      CREATE TABLE IF NOT EXISTS notices (
-        id SERIAL PRIMARY KEY,
-        title TEXT NOT NULL,
-        date TEXT NOT NULL,
-        summary TEXT NOT NULL,
-        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-      )
-    `;
+    schemaReady = (async () => {
+      const sql = getSql();
+      await sql`
+        CREATE TABLE IF NOT EXISTS notices (
+          id SERIAL PRIMARY KEY,
+          title TEXT NOT NULL,
+          summary TEXT NOT NULL,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        )
+      `;
+      await sql`ALTER TABLE notices DROP COLUMN IF EXISTS date`;
+    })();
   }
   return schemaReady;
 }
