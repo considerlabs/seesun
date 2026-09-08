@@ -10,8 +10,8 @@ export default function HomePage() {
     <>
       <section className="relative min-h-[100dvh] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2000&q=80"
-          alt="예배당 안 따뜻한 빛"
+          src="/img/hero.jpg"
+          alt="안양 시선교회 전경"
           fill
           priority
           className="object-cover"
