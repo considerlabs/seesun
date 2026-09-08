@@ -27,7 +27,7 @@ export default function StaffPage() {
                     src={person.image}
                     alt={person.name}
                     fill
-                    className="object-cover object-top"
+                    className={`object-cover object-top ${person.imageClassName ?? ""}`}
                     sizes="(max-width:768px) 100vw, 240px"
                     priority={i === 0}
                   />
