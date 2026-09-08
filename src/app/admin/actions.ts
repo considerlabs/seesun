@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { requireAdminSession } from "@/lib/auth";
 import { createNotice, deleteNotice, updateNotice } from "@/lib/notices-db";
 
 function readNotice(formData: FormData) {
@@ -20,18 +21,21 @@ function revalidateNotices() {
 }
 
 export async function createNoticeAction(formData: FormData) {
+  await requireAdminSession();
   await createNotice(readNotice(formData));
   revalidateNotices();
   redirect("/admin");
 }
 
 export async function updateNoticeAction(id: number, formData: FormData) {
+  await requireAdminSession();
   await updateNotice(id, readNotice(formData));
   revalidateNotices();
   redirect("/admin");
 }
 
 export async function deleteNoticeAction(id: number) {
+  await requireAdminSession();
   await deleteNotice(id);
   revalidateNotices();
   redirect("/admin");

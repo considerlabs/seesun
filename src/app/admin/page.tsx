@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { formatNoticeDateTime, getNotices } from "@/lib/notices-db";
 import { deleteNoticeAction } from "./actions";
+import { logoutAction } from "./login/actions";
 
 export const metadata: Metadata = {
   title: "공지사항 관리",
@@ -13,15 +14,25 @@ export default async function AdminPage() {
   const notices = await getNotices();
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 md:px-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-28 md:px-6 md:pt-32">
       <div className="flex items-center justify-between gap-4">
         <h1 className="text-2xl font-bold">공지사항 관리</h1>
-        <Link
-          href="/admin/new"
-          className="rounded bg-accent px-4 py-2 text-sm font-semibold text-white"
-        >
-          글쓰기
-        </Link>
+        <div className="flex shrink-0 gap-2">
+          <Link
+            href="/admin/new"
+            className="rounded bg-accent px-4 py-2 text-sm font-semibold text-white"
+          >
+            글쓰기
+          </Link>
+          <form action={logoutAction}>
+            <button
+              type="submit"
+              className="rounded border border-line px-4 py-2 text-sm font-semibold"
+            >
+              로그아웃
+            </button>
+          </form>
+        </div>
       </div>
 
       <div className="mt-8 divide-y divide-line border-y border-line">

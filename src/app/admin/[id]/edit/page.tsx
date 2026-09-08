@@ -17,7 +17,7 @@ export default async function EditNoticePage({
   if (!notice) notFound();
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 md:px-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-28 md:px-6 md:pt-32">
       <h1 className="text-2xl font-bold">공지사항 수정</h1>
 
       <form

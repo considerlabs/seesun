@@ -268,7 +268,7 @@ export default async function HomePage() {
             {notices.map((notice, i) => (
               <Reveal key={notice.id} delay={i * 0.05}>
                 <Link
-                  href="/notices"
+                  href={`/notices/${notice.id}`}
                   className="flex flex-col gap-2 py-5 transition hover:bg-accent-soft/60 md:flex-row md:items-center md:justify-between md:gap-8 md:px-2"
                 >
                   <span className="font-medium text-foreground">
