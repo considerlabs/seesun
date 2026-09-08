@@ -8,10 +8,11 @@ import { createNotice, deleteNotice, updateNotice } from "@/lib/notices-db";
 function readNotice(formData: FormData) {
   const title = String(formData.get("title") ?? "").trim();
   const summary = String(formData.get("summary") ?? "").trim();
-  if (!title || !summary) {
-    throw new Error("제목과 내용을 모두 입력해 주세요.");
+  const author = String(formData.get("author") ?? "").trim();
+  if (!title || !summary || !author) {
+    throw new Error("제목, 내용, 글쓴이를 모두 입력해 주세요.");
   }
-  return { title, summary };
+  return { title, summary, author };
 }
 
 function revalidateNotices() {

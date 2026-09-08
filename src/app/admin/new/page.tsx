@@ -26,6 +26,18 @@ export default function NewNoticePage() {
           />
         </div>
         <div>
+          <label className="block text-sm text-muted" htmlFor="author">
+            글쓴이
+          </label>
+          <input
+            id="author"
+            name="author"
+            required
+            defaultValue="관리자"
+            className="mt-1 w-full rounded border border-line px-3 py-2"
+          />
+        </div>
+        <div>
           <label className="block text-sm text-muted" htmlFor="summary">
             내용
           </label>
