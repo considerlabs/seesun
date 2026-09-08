@@ -3,9 +3,13 @@ import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Marquee } from "@/components/Marquee";
 import { Reveal } from "@/components/Reveal";
-import { church, notices, sermons, serviceTimes } from "@/lib/content";
+import { church, sermons, serviceTimes } from "@/lib/content";
+import { getNotices } from "@/lib/notices-db";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const notices = (await getNotices()).slice(0, 3);
   return (
     <>
       <section className="relative min-h-[100dvh] overflow-hidden">
