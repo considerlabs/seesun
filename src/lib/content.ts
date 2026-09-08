@@ -38,7 +38,6 @@ export const navigation: NavItem[] = [
       { label: "복음의 내용", href: "/gospel" },
       { label: "섬기는 사람들", href: "/staff" },
       { label: "시선집", href: "/magazine" },
-      { label: "교육", href: "/education" },
     ],
   },
   {
@@ -51,6 +50,7 @@ export const navigation: NavItem[] = [
   },
   { label: "개척이야기", href: "/planting" },
   { label: "도시사역", href: "/city" },
+  { label: "교육", href: "/education" },
   { label: "주일학교 안내", href: "/sunday-school" },
 ];
 
