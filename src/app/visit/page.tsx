@@ -14,7 +14,7 @@ const firstVisitSteps = [
     step: 1,
     image: "/img/visit/step1.png",
     lines: [
-      "시선교회를 방문하셨다면",
+      "시선교회를 방문하셨다면?",
       "즉시 새가족팀의 환영을",
       "받으실 수 있습니다.",
     ],
