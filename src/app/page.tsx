@@ -13,13 +13,15 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative min-h-[100dvh] overflow-hidden">
-        <Image
-          src="/img/hero.jpg"
-          alt="안양 시선교회 전경"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
+        <video
+          src="/img/hero.mp4"
+          poster="/img/hero.jpg"
+          aria-label="안양 시선교회 전경"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div
           className="absolute inset-0"
