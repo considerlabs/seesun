@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Paperclip } from "@phosphor-icons/react/dist/ssr";
 import { PageHero } from "@/components/PageHero";
 import { SectionShell } from "@/components/Section";
 import { getNotices } from "@/lib/notices-db";
@@ -44,9 +45,16 @@ export default async function NoticesPage() {
                     <td className="py-4">
                       <Link
                         href={`/notices/${notice.id}`}
-                        className="font-medium transition hover:text-accent"
+                        className="inline-flex items-center gap-1.5 font-medium transition hover:text-accent"
                       >
                         {notice.title}
+                        {notice.attachments.length > 0 ? (
+                          <Paperclip
+                            size={14}
+                            className="shrink-0 text-muted"
+                            aria-label="첨부파일"
+                          />
+                        ) : null}
                       </Link>
                     </td>
                     <td className="py-4 text-center text-muted">{notice.author}</td>

@@ -54,6 +54,19 @@ type NoticeRow = {
   attachments: Attachment[];
 };
 
+function parseAttachments(value: unknown): Attachment[] {
+  if (Array.isArray(value)) return value;
+  if (typeof value === "string") {
+    try {
+      const parsed = JSON.parse(value);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
+
 function mapRow(row: NoticeRow): Notice {
   return {
     id: row.id,
@@ -63,7 +76,7 @@ function mapRow(row: NoticeRow): Notice {
     views: row.views,
     date: formatNoticeDate(row.created_at),
     createdAt: new Date(row.created_at).toISOString(),
-    attachments: row.attachments ?? [],
+    attachments: parseAttachments(row.attachments),
   };
 }
 

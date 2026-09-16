@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Paperclip } from "@phosphor-icons/react/dist/ssr";
 import { PageHero } from "@/components/PageHero";
 import { SectionShell } from "@/components/Section";
+import { formatFileSize } from "@/lib/attachments";
 import { getNotice, incrementNoticeViews } from "@/lib/notices-db";
 
 export const dynamic = "force-dynamic";
@@ -40,15 +42,19 @@ export default async function NoticeDetailPage({
             {notice.summary}
           </p>
           {notice.attachments.length > 0 && (
-            <ul className="mt-6 space-y-1 border-t border-line pt-4 text-sm">
-              {notice.attachments.map((a) => (
-                <li key={a.url}>
+            <ul className="mt-6 space-y-2 border-t border-line pt-4 text-sm">
+              {notice.attachments.map((attachment) => (
+                <li key={attachment.url}>
                   <a
-                    href={a.url}
-                    download={a.name}
-                    className="font-medium text-accent hover:underline"
+                    href={attachment.url}
+                    download={attachment.name}
+                    className="inline-flex items-center gap-2 font-medium text-accent hover:underline"
                   >
-                    📎 {a.name}
+                    <Paperclip size={16} weight="bold" />
+                    {attachment.name}
+                    <span className="font-normal text-muted">
+                      {formatFileSize(attachment.size)}
+                    </span>
                   </a>
                 </li>
               ))}
