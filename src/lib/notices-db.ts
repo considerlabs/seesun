@@ -1,5 +1,11 @@
 import { ensureSchema, getSql } from "@/lib/db";
 
+export type Attachment = {
+  url: string;
+  name: string;
+  size: number;
+};
+
 export type Notice = {
   id: number;
   title: string;
@@ -10,6 +16,7 @@ export type Notice = {
   date: string;
   /** raw ISO timestamp, for admin's date+time display */
   createdAt: string;
+  attachments: Attachment[];
 };
 
 function toKSTParts(value: string | Date) {
@@ -44,6 +51,7 @@ type NoticeRow = {
   author: string;
   views: number;
   created_at: string;
+  attachments: Attachment[];
 };
 
 function mapRow(row: NoticeRow): Notice {
@@ -55,6 +63,7 @@ function mapRow(row: NoticeRow): Notice {
     views: row.views,
     date: formatNoticeDate(row.created_at),
     createdAt: new Date(row.created_at).toISOString(),
+    attachments: row.attachments ?? [],
   };
 }
 
@@ -62,7 +71,7 @@ export async function getNotices(): Promise<Notice[]> {
   await ensureSchema();
   const sql = getSql();
   const rows = await sql`
-    SELECT id, title, summary, author, views, created_at FROM notices ORDER BY created_at DESC
+    SELECT id, title, summary, author, views, created_at, attachments FROM notices ORDER BY created_at DESC
   `;
   return (rows as NoticeRow[]).map(mapRow);
 }
@@ -71,29 +80,35 @@ export async function getNotice(id: number): Promise<Notice | null> {
   await ensureSchema();
   const sql = getSql();
   const rows = await sql`
-    SELECT id, title, summary, author, views, created_at FROM notices WHERE id = ${id}
+    SELECT id, title, summary, author, views, created_at, attachments FROM notices WHERE id = ${id}
   `;
   const row = rows[0] as NoticeRow | undefined;
   return row ? mapRow(row) : null;
 }
 
-export async function createNotice(data: { title: string; summary: string; author: string }) {
+export async function createNotice(data: {
+  title: string;
+  summary: string;
+  author: string;
+  attachments: Attachment[];
+}) {
   await ensureSchema();
   const sql = getSql();
   await sql`
-    INSERT INTO notices (title, summary, author)
-    VALUES (${data.title}, ${data.summary}, ${data.author})
+    INSERT INTO notices (title, summary, author, attachments)
+    VALUES (${data.title}, ${data.summary}, ${data.author}, ${JSON.stringify(data.attachments)}::jsonb)
   `;
 }
 
 export async function updateNotice(
   id: number,
-  data: { title: string; summary: string; author: string }
+  data: { title: string; summary: string; author: string; attachments: Attachment[] }
 ) {
   await ensureSchema();
   const sql = getSql();
   await sql`
-    UPDATE notices SET title = ${data.title}, summary = ${data.summary}, author = ${data.author}
+    UPDATE notices SET title = ${data.title}, summary = ${data.summary}, author = ${data.author},
+      attachments = ${JSON.stringify(data.attachments)}::jsonb
     WHERE id = ${id}
   `;
 }

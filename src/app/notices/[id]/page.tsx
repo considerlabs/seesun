@@ -39,6 +39,21 @@ export default async function NoticeDetailPage({
           <p className="mt-6 whitespace-pre-wrap text-[16px] leading-relaxed text-muted">
             {notice.summary}
           </p>
+          {notice.attachments.length > 0 && (
+            <ul className="mt-6 space-y-1 border-t border-line pt-4 text-sm">
+              {notice.attachments.map((a) => (
+                <li key={a.url}>
+                  <a
+                    href={a.url}
+                    download={a.name}
+                    className="font-medium text-accent hover:underline"
+                  >
+                    📎 {a.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
           <Link
             href="/notices"
             className="mt-10 inline-block text-sm font-semibold text-accent"

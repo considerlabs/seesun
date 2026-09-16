@@ -30,6 +30,7 @@ export function ensureSchema() {
       await sql`ALTER TABLE notices DROP COLUMN IF EXISTS date`;
       await sql`ALTER TABLE notices ADD COLUMN IF NOT EXISTS author TEXT NOT NULL DEFAULT '관리자'`;
       await sql`ALTER TABLE notices ADD COLUMN IF NOT EXISTS views INTEGER NOT NULL DEFAULT 0`;
+      await sql`ALTER TABLE notices ADD COLUMN IF NOT EXISTS attachments JSONB NOT NULL DEFAULT '[]'::jsonb`;
     })();
   }
   return schemaReady;

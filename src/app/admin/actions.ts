@@ -2,8 +2,15 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { del, put } from "@vercel/blob";
 import { requireAdminSession } from "@/lib/auth";
-import { createNotice, deleteNotice, updateNotice } from "@/lib/notices-db";
+import {
+  createNotice,
+  deleteNotice,
+  getNotice,
+  updateNotice,
+  type Attachment,
+} from "@/lib/notices-db";
 
 function readNotice(formData: FormData) {
   const title = String(formData.get("title") ?? "").trim();
@@ -15,6 +22,20 @@ function readNotice(formData: FormData) {
   return { title, summary, author };
 }
 
+async function uploadAttachments(formData: FormData): Promise<Attachment[]> {
+  const files = formData.getAll("attachments").filter((f): f is File => f instanceof File && f.size > 0);
+  const uploaded = await Promise.all(
+    files.map(async (file) => {
+      const blob = await put(`notices/${file.name}`, file, {
+        access: "public",
+        addRandomSuffix: true,
+      });
+      return { url: blob.url, name: file.name, size: file.size };
+    })
+  );
+  return uploaded;
+}
+
 function revalidateNotices() {
   revalidatePath("/admin");
   revalidatePath("/notices");
@@ -23,21 +44,31 @@ function revalidateNotices() {
 
 export async function createNoticeAction(formData: FormData) {
   await requireAdminSession();
-  await createNotice(readNotice(formData));
+  const attachments = await uploadAttachments(formData);
+  await createNotice({ ...readNotice(formData), attachments });
   revalidateNotices();
   redirect("/admin");
 }
 
 export async function updateNoticeAction(id: number, formData: FormData) {
   await requireAdminSession();
-  await updateNotice(id, readNotice(formData));
+  const existing = await getNotice(id);
+  const removedUrls = new Set(formData.getAll("removeAttachment").map(String));
+  const kept = (existing?.attachments ?? []).filter((a) => !removedUrls.has(a.url));
+  await Promise.all([...removedUrls].map((url) => del(url)));
+  const newAttachments = await uploadAttachments(formData);
+  await updateNotice(id, { ...readNotice(formData), attachments: [...kept, ...newAttachments] });
   revalidateNotices();
   redirect("/admin");
 }
 
 export async function deleteNoticeAction(id: number) {
   await requireAdminSession();
+  const notice = await getNotice(id);
   await deleteNotice(id);
+  if (notice?.attachments.length) {
+    await Promise.all(notice.attachments.map((a) => del(a.url)));
+  }
   revalidateNotices();
   redirect("/admin");
 }

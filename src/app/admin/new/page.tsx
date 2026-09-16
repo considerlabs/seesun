@@ -12,6 +12,7 @@ export default function NewNoticePage() {
 
       <form
         action={createNoticeAction}
+        encType="multipart/form-data"
         className="mt-8 space-y-4 rounded-lg border border-line bg-surface p-6"
       >
         <div>
@@ -46,6 +47,18 @@ export default function NewNoticePage() {
             name="summary"
             required
             rows={6}
+            className="mt-1 w-full rounded border border-line px-3 py-2"
+          />
+        </div>
+        <div>
+          <label className="block text-sm text-muted" htmlFor="attachments">
+            첨부파일
+          </label>
+          <input
+            id="attachments"
+            name="attachments"
+            type="file"
+            multiple
             className="mt-1 w-full rounded border border-line px-3 py-2"
           />
         </div>

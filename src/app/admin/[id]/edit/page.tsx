@@ -22,6 +22,7 @@ export default async function EditNoticePage({
 
       <form
         action={updateNoticeAction.bind(null, notice.id)}
+        encType="multipart/form-data"
         className="mt-8 space-y-4 rounded-lg border border-line bg-surface p-6"
       >
         <div>
@@ -58,6 +59,34 @@ export default async function EditNoticePage({
             required
             rows={4}
             defaultValue={notice.summary}
+            className="mt-1 w-full rounded border border-line px-3 py-2"
+          />
+        </div>
+        {notice.attachments.length > 0 && (
+          <div>
+            <span className="block text-sm text-muted">기존 첨부파일</span>
+            <ul className="mt-1 space-y-1">
+              {notice.attachments.map((a) => (
+                <li key={a.url} className="flex items-center gap-2 text-sm">
+                  <input type="checkbox" name="removeAttachment" value={a.url} id={`remove-${a.url}`} />
+                  <label htmlFor={`remove-${a.url}`} className="flex-1">
+                    {a.name}
+                  </label>
+                  <span className="text-muted">삭제</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <div>
+          <label className="block text-sm text-muted" htmlFor="attachments">
+            첨부파일 추가
+          </label>
+          <input
+            id="attachments"
+            name="attachments"
+            type="file"
+            multiple
             className="mt-1 w-full rounded border border-line px-3 py-2"
           />
         </div>
