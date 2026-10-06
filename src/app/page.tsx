@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Marquee } from "@/components/Marquee";
 import { Reveal } from "@/components/Reveal";
-import { church, sermons, serviceTimes } from "@/lib/content";
+import { church, sermonCategories, sermons, serviceTimes } from "@/lib/content";
 import { getNotices } from "@/lib/notices-db";
 
 export const dynamic = "force-dynamic";
@@ -297,10 +297,10 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {sermons.map((sermon, i) => (
-              <Reveal key={sermon.id} delay={i * 0.06}>
+            {sermonCategories.map((category) => sermons.find((s) => s.category === category)!).map((sermon, i) => (
+              <Reveal key={sermon.youtubeId} delay={i * 0.06}>
                 <Link
-                  href="/sermons"
+                  href={`/sermons#${sermon.category}`}
                   className="block rounded-2xl border border-line bg-surface p-6 transition hover:border-accent/40 hover:shadow-[0_12px_40px_rgba(16,72,112,0.1)]"
                 >
                   <p className="text-sm text-accent">{sermon.category}</p>

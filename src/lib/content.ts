@@ -10,6 +10,7 @@ export const church = {
   email: "",
   parent: "시광교회",
   instagram: "https://www.instagram.com/seesun_church",
+  youtube: "https://www.youtube.com/@seesunchurch",
   mapUrl:
     "https://map.naver.com/p/search/%EC%8B%9C%EC%84%A0%EA%B5%90%ED%9A%8C?c=15.26,0,0,0,dh",
   mapEmbedUrl:
@@ -71,22 +72,42 @@ export const staff = [
   },
 ];
 
+// 최신순. 새 설교는 각 그룹 맨 위에 추가 (출처: youtube.com/@seesunchurch)
 export const sermons = [
-  {
-    id: "1",
-    title: "주일 오전 설교",
-    category: "주일 오전",
-    date: "준비 중",
-    preacher: "박현진 목사",
-  },
-  {
-    id: "2",
-    title: "금요기도회 설교",
-    category: "금요기도회",
-    date: "준비 중",
-    preacher: "박현진 목사",
-  },
+  { youtubeId: "AI_UWJS26Ss", category: "주일오전예배", series: "로마서 강해 #24", title: "끊을 수 없는 하나님의 사랑", preacher: "박현진 목사", date: "2026.10.04" },
+  { youtubeId: "LIgh79LJfiM", category: "주일오전예배", series: "단편설교", title: "자기연민의 늪", preacher: "박현진 목사", date: "2026.09.27" },
+  { youtubeId: "NJATITUWUws", category: "주일오전예배", series: "단편설교", title: "바리새인에게 분노하는 바리새인", preacher: "박현진 목사", date: "2026.09.20" },
+  { youtubeId: "zJkhHNSko3Y", category: "주일오전예배", series: "로마서 강해 #23", title: "구원, 영원 전부터 영원까지", preacher: "박현진 목사", date: "2026.09.13" },
+  { youtubeId: "pxEGEjHDLBQ", category: "주일오전예배", series: "로마서 강해 #22", title: "그리스도인들의 행복", preacher: "박현진 목사", date: "2026.09.06" },
+  { youtubeId: "Xf0L1eAaFzA", category: "주일오전예배", series: "단편설교", title: "내 양을 먹이라", preacher: "이정규 목사", date: "2026.08.30" },
+  { youtubeId: "p2nSHAus85s", category: "주일오전예배", series: "단편설교", title: "길을 찾는 당신에게", preacher: "박현진 목사", date: "2026.08.16" },
+  { youtubeId: "c4POeA0jMpo", category: "주일오전예배", series: "로마서 강해 #21", title: "탄식의 세상에서 소망을 품다", preacher: "박현진 목사", date: "2026.08.09" },
+  { youtubeId: "2eNLiud8lK8", category: "주일오전예배", series: "로마서 강해 #20", title: "성령 하나님이 주시는 확신", preacher: "박현진 목사", date: "2026.08.02" },
+  { youtubeId: "gGHwDf7Q-34", category: "주일오전예배", series: "로마서 강해 #19", title: "두 종류의 사람", preacher: "박현진 목사", date: "2026.07.26" },
+  { youtubeId: "9kO-HlcGFyM", category: "주일오전예배", series: "로마서 강해 #18", title: "성령 하나님이 주시는 자유", preacher: "박현진 목사", date: "2026.07.19" },
+  { youtubeId: "Vl7s6bNa-f4", category: "주일오전예배", series: "로마서 강해 #17", title: "보이지 않는 전쟁", preacher: "박현진 목사", date: "2026.07.12" },
+  { youtubeId: "uMU20wEhlsU", category: "주일오전예배", series: "로마서 강해 #16", title: "새로운 결혼과 새로운 삶", preacher: "박현진 목사", date: "2026.07.05" },
+  { youtubeId: "_5UQCDU77tA", category: "주일오전예배", series: "단편설교", title: "두려움을 다루는 방법", preacher: "박현진 목사", date: "2026.06.28" },
+  { youtubeId: "K6CJrpNmqd4", category: "주일오전예배", series: "로마서 강해 #15", title: "당신은 누구의 종인가?", preacher: "박현진 목사", date: "2026.06.21" },
+  { youtubeId: "w0GsZqof7X4", category: "주일오전예배", series: "단편설교", title: "바로 지금!", preacher: "박현진 목사", date: "2026.06.14" },
+  { youtubeId: "FxwwxtrKh_U", category: "금요기도회", series: "하나님의 성품 #7", title: "전능하신 하나님", preacher: "박현진 목사", date: "2026.10.02" },
+  { youtubeId: "I4rbMT2T7DY", category: "금요기도회", series: "하나님의 성품 #5", title: "가까이 계시지만 멀리계신 하나님", preacher: "박현진 목사", date: "2026.09.18" },
+  { youtubeId: "585MVKBhk6M", category: "금요기도회", series: "하나님의 성품 #4", title: "삼위 하나님께 둘러싸여 살다", preacher: "박현진 목사", date: "2026.09.11" },
+  { youtubeId: "qoqigERa4V0", category: "금요기도회", series: "하나님의 성품 #4", title: "하나님은 사랑이시다", preacher: "박현진 목사", date: "2026.09.04" },
+  { youtubeId: "K7lQEa-df4k", category: "금요기도회", series: "하나님의 성품", title: "의존하는 인간에게 찾아오신 자존하신 하나님", preacher: "박현진 목사", date: "2026.08.14" },
+  { youtubeId: "Abxq3XAgC_Y", category: "금요기도회", series: "", title: "실천적 무신론자, 하나님을 만나다", preacher: "박현진 목사", date: "2026.08.07" },
+  { youtubeId: "201QlfzqYOM", category: "금요기도회", series: "", title: "사역의 방해가 아닌 사역의 중심", preacher: "박현진 목사", date: "2026.07.31" },
+  { youtubeId: "zFuxQLQAMfA", category: "금요기도회", series: "", title: "하나님을 하나님으로 알 수 있을까?", preacher: "박현진 목사", date: "2026.07.24" },
+  { youtubeId: "fReEvcjLp50", category: "금요기도회", series: "", title: "말 사용법", preacher: "박현진 목사", date: "2026.07.03" },
+  { youtubeId: "VvU80Ma5bl8", category: "금요기도회", series: "", title: "우리는 기도하고 하나님은 응답하신다", preacher: "오로라 전도사", date: "2026.06.26" },
+  { youtubeId: "vCAOLO_zNmE", category: "금요기도회", series: "", title: "하나님의 것으로 인정하는 자유", preacher: "박현진 목사", date: "2026.06.19" },
+  { youtubeId: "EAITvcx9_pQ", category: "금요기도회", series: "", title: "감각적 사랑에서 언약적 사랑으로", preacher: "박현진 목사", date: "2026.06.12" },
+  { youtubeId: "8k-nHLp_uTU", category: "금요기도회", series: "단편설교", title: "답이 없어도 된다는 믿음", preacher: "박현진 목사", date: "2026.05.29" },
+  { youtubeId: "aRpFZuIJaCI", category: "금요기도회", series: "", title: "갈망, 이해되지 않는 현실에서의 찬양", preacher: "박현진 목사", date: "2026.05.01" },
+  { youtubeId: "6ANxn8_AX2g", category: "금요기도회", series: "예수님의 이름으로 하는 주기도문 #1", title: "하늘에 계신 우리 아버지", preacher: "박현진 목사", date: "2025.11.07" },
 ];
+
+export const sermonCategories = ["주일오전예배", "금요기도회"] as const;
 
 export const sundaySchool = [
   {
