@@ -3,13 +3,17 @@ import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { SectionShell } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import { church, sermonCategories, sermons } from "@/lib/content";
+import { church, sermonCategories } from "@/lib/content";
+import { getSermons } from "@/lib/youtube";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "설교",
 };
 
-export default function SermonsPage() {
+export default async function SermonsPage() {
+  const sermons = await getSermons();
   return (
     <>
       <PageHero

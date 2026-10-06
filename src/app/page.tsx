@@ -3,13 +3,15 @@ import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { Marquee } from "@/components/Marquee";
 import { Reveal } from "@/components/Reveal";
-import { church, sermonCategories, sermons, serviceTimes } from "@/lib/content";
+import { church, sermonCategories, serviceTimes } from "@/lib/content";
 import { getNotices } from "@/lib/notices-db";
+import { getSermons } from "@/lib/youtube";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const notices = (await getNotices()).slice(0, 3);
+  const [allNotices, sermons] = await Promise.all([getNotices(), getSermons()]);
+  const notices = allNotices.slice(0, 3);
   return (
     <>
       <section className="relative min-h-[100dvh] overflow-hidden">

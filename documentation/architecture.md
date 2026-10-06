@@ -21,11 +21,11 @@ Public marketing site for **시선교회** (Seesun Church), modeled after seethe
 - Session cookie is HttpOnly, `secure` in production, `sameSite: lax`, 7-day expiry. It carries no user identity — it's a single shared token since there is exactly one account.
 - Most content is compile-time / static (`src/lib/content.ts`, per-page JSX). Notices are the one runtime-mutable, DB-backed content type.
 - External: Unsplash images (`next.config.ts`), Google Maps embed (home), Naver Map outbound link, YouTube embeds (planting), Instagram outbound links.
-- Secrets live in Vercel env vars (`DATABASE_URL` + `POSTGRES_*` from the Neon integration, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `SESSION_SECRET`, `BLOB_READ_WRITE_TOKEN`), pulled into a gitignored `.env.local` for local dev. Nothing secret is committed to git.
+- Secrets live in Vercel env vars (`DATABASE_URL` + `POSTGRES_*` from the Neon integration, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `SESSION_SECRET`, `BLOB_READ_WRITE_TOKEN`, `YOUTUBE_API_KEY`), pulled into a gitignored `.env.local` for local dev. Nothing secret is committed to git.
 
 ## Known risks / assumptions
 
-- Sermon list remains a placeholder until real media is provided.
+- Sermon list is pulled from the YouTube Data API (`src/lib/youtube.ts`, cached 1h via `unstable_cache`), filtered by title prefix; falls back to the static list in `content.ts` when the key is missing or the API fails.
 - 시선집 page is intro + Instagram deep link; no in-site article CMS yet.
 - Naver Map cannot be iframed (`X-Frame-Options: DENY`); home map uses Google embed + Naver link button.
 - Vercel SSO deployment protection must stay **disabled** for public site access (unrelated to `/admin` login, which is app-level, not Vercel SSO).
