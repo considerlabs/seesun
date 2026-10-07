@@ -20,12 +20,12 @@ Public marketing site for **시선교회** (Seesun Church), modeled after seethe
 - Login (`src/app/admin/login/actions.ts`) compares credentials against `ADMIN_USERNAME` / `ADMIN_PASSWORD` env vars using `crypto.timingSafeEqual` (constant-time). No password hashing library — env vars are already secret at rest, so plaintext-in-env is the accepted tradeoff for a single-admin site.
 - Session cookie is HttpOnly, `secure` in production, `sameSite: lax`, 7-day expiry. It carries no user identity — it's a single shared token since there is exactly one account.
 - Most content is compile-time / static (`src/lib/content.ts`, per-page JSX). Notices are the one runtime-mutable, DB-backed content type.
-- External: Unsplash images (`next.config.ts`), Google Maps embed (home), Naver Map outbound link, YouTube embeds (planting), Instagram outbound links.
+- External: Unsplash and YouTube thumbnail images (`next.config.ts`), YouTube Data API v3 (server-side only, key never sent to the browser), Google Maps embed (home), Naver Map outbound link, YouTube embeds (planting), Instagram outbound links.
 - Secrets live in Vercel env vars (`DATABASE_URL` + `POSTGRES_*` from the Neon integration, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `SESSION_SECRET`, `BLOB_READ_WRITE_TOKEN`, `YOUTUBE_API_KEY`), pulled into a gitignored `.env.local` for local dev. Nothing secret is committed to git.
 
 ## Known risks / assumptions
 
-- Sermon list is pulled from the YouTube Data API (`src/lib/youtube.ts`, cached 1h via `unstable_cache`), filtered by title prefix; falls back to the static list in `content.ts` when the key is missing or the API fails.
+- Sermon list is pulled from the YouTube Data API (`src/lib/youtube.ts`, cached 1h via `unstable_cache`), classified by title prefix, or for older un-prefixed uploads by Sunday date + 목사 preacher; falls back to the static list in `content.ts` when the key is missing or the API fails.
 - 시선집 page is intro + Instagram deep link; no in-site article CMS yet.
 - Naver Map cannot be iframed (`X-Frame-Options: DENY`); home map uses Google embed + Naver link button.
 - Vercel SSO deployment protection must stay **disabled** for public site access (unrelated to `/admin` login, which is app-level, not Vercel SSO).
@@ -38,4 +38,4 @@ Public marketing site for **시선교회** (Seesun Church), modeled after seethe
 
 - `documentation/인수인계.md` — handoff (runbook, nav, content, admin/DB, deploy, checklist)
 - No `emails.md` / `cron.md` / `automation.md` / `permissions.md` / `variables.md`
-- No automated test suite yet
+- No automated test suite; one assert-based check for the sermon title parser (`scripts/check-sermon-title.ts`, run with `npx tsx`)
