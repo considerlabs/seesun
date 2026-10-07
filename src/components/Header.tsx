@@ -22,10 +22,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
+  // 페이지 이동 시 모바일 메뉴 닫기
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setOpen(false);
     setExpanded(null);
-  }, [pathname]);
+  }
 
   return (
     <header
